@@ -1,0 +1,16 @@
+:host {
+	cursor: pointer;
+	display: inline-block;
+	padding: 8px;
+	background: var(--mat-app-background-color);
+	border: 1px solid var(--mat-divider-color);
+}
+
+:host,
+img {
+	border-radius: 4px;
+}
+
+img {
+	display: block;
+}
