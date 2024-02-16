@@ -3,7 +3,7 @@ import {skip, take} from 'rxjs';
 
 import {FavoritesService} from './favorites.service';
 
-describe('FavoritesService', () => {
+describe('Favorites Service', () => {
 	let service: FavoritesService;
 
 	beforeEach(() => {
