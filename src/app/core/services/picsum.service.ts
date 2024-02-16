@@ -36,7 +36,7 @@ export class PicsumService {
 			.pipe(
 				delay(200 + Math.random() * 100),
 				map((response) => {
-					const result: any = {
+					const result: PicsumList = {
 						items: (response.body || []).map((item) => ({
 							...item,
 							id: parseInt(item.id),
@@ -47,6 +47,7 @@ export class PicsumService {
 
 					if (link) {
 						link.split(',').forEach((item) => {
+							// eslint-disable-next-line @typescript-eslint/no-unused-vars
 							const [link, rel] = item.trim().split(' ');
 
 							if (rel === 'rel="prev"') {
