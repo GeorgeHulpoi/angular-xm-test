@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="content">
+		<a routerLink="/" routerLinkActive [routerLinkActiveOptions]="{exact: true}" #photos="routerLinkActive">
+			<button mat-button [ngClass]="photos.isActive ? btnActiveClasses : btnDefaultClasses">Photos</button>
+		</a>
+		<a
+			routerLink="/favorites"
+			routerLinkActive
+			[routerLinkActiveOptions]="{exact: true}"
+			#favorites="routerLinkActive"
+		>
+			<button mat-button [ngClass]="favorites.isActive ? btnActiveClasses : btnDefaultClasses">Favorites</button>
+		</a>
+	</div>
+</div>
