@@ -1,15 +1,15 @@
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import { AsyncPipe } from '@angular/common';
-import { Component, NgZone, inject } from '@angular/core';
-import { BehaviorSubject, Observable, concatMap, scan, tap } from 'rxjs';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {AsyncPipe} from '@angular/common';
+import {Component, NgZone, inject} from '@angular/core';
+import {BehaviorSubject, Observable, concatMap, scan, tap} from 'rxjs';
 
-import { FavoritesService } from '../../core/services/favorites.service';
-import { PicsumService } from '../../core/services/picsum.service';
-import { CardComponent } from '../../shared/components/card/card.component';
-import { ClickZonelessDirective } from '../../shared/directives/click-zoneless.directive';
-import type { PicsumList } from '../../types';
-import { LoaderComponent } from './loader/loader.component';
-import { VirtualListComponent } from './virtual-list/virtual-list.component';
+import {FavoritesService} from '../../core/services/favorites.service';
+import {PicsumService} from '../../core/services/picsum.service';
+import {CardComponent} from '../../shared/components/card/card.component';
+import {ClickZonelessDirective} from '../../shared/directives/click-zoneless.directive';
+import type {PicsumList} from '../../types';
+import {LoaderComponent} from './loader/loader.component';
+import {VirtualListComponent} from './virtual-list/virtual-list.component';
 
 @Component({
 	selector: 'app-photos',
