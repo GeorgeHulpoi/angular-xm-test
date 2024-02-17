@@ -1,12 +1,11 @@
-import {HttpErrorResponse} from '@angular/common/http';
 import {inject} from '@angular/core';
 import {ActivatedRouteSnapshot, ResolveFn, Router} from '@angular/router';
-import {catchError, of, throwError} from 'rxjs';
+import {concatMap, of} from 'rxjs';
 
 import type {PicsumResource} from '../../types';
 import {PicsumService} from '../services/picsum.service';
 
-export const singlePhotoResolver: ResolveFn<PicsumResource> = (route: ActivatedRouteSnapshot) => {
+export const singlePhotoResolver: ResolveFn<PicsumResource | null> = (route: ActivatedRouteSnapshot) => {
 	const picsumService = inject(PicsumService);
 	const router = inject(Router);
 
@@ -22,15 +21,5 @@ export const singlePhotoResolver: ResolveFn<PicsumResource> = (route: ActivatedR
 		return notFound();
 	}
 
-	return picsumService.getInfo(id).pipe(
-		catchError((err) => {
-			if (err instanceof HttpErrorResponse) {
-				if (err.status === 404) {
-					return notFound();
-				}
-			}
-
-			return throwError(() => err);
-		}),
-	);
+	return picsumService.getInfo(id).pipe(concatMap((res) => (res ? of(res) : notFound())));
 };
