@@ -1,13 +1,13 @@
 <div class="container">
 	@if (initialized) {
 		@if (data.length > 0) {
-			<div class="cards">
+			<app-collection>
 				@for (photo of data; track photo.id) {
 					<a [routerLink]="'/photos/' + photo.id">
 						<app-card [id]="photo.id"></app-card>
 					</a>
 				}
-			</div>
+			</app-collection>
 		} @else {
 			<p class="empty">Nothing to show here.</p>
 		}

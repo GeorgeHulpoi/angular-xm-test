@@ -8,6 +8,7 @@ import {Observable, forkJoin, of, switchMap, tap} from 'rxjs';
 import {FavoritesService} from '../../core/services/favorites.service';
 import {PicsumService} from '../../core/services/picsum.service';
 import {CardComponent} from '../../shared/components/card/card.component';
+import {CollectionComponent} from '../../shared/components/collection/collection.component';
 import type {PicsumResource, PicsumResourceIdType} from '../../types';
 
 @Component({
@@ -15,7 +16,7 @@ import type {PicsumResource, PicsumResourceIdType} from '../../types';
 	templateUrl: 'favorites.component.html',
 	styleUrl: 'favorites.component.scss',
 	standalone: true,
-	imports: [AsyncPipe, RouterLink, CardComponent, MatProgressSpinnerModule],
+	imports: [AsyncPipe, RouterLink, CardComponent, MatProgressSpinnerModule, CollectionComponent],
 })
 export class FavoritesComponent implements OnInit {
 	data: PicsumResource[] = [];
