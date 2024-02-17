@@ -152,6 +152,7 @@ describe('Favorites Component', () => {
 		favoritesService.add(2);
 
 		expect(getInfoSpy).toHaveBeenCalledTimes(2);
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const cache: Map<any, any> = (component as any).cache;
 
 		expect(cache.size).toEqual(2);
