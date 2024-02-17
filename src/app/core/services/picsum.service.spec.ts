@@ -224,5 +224,15 @@ describe('Picsum Service', () => {
 				download_url: 'https://picsum.photos/id/0/5000/3333',
 			});
 		});
+
+		it('should return null when the response is 404', (done) => {
+			service.getInfo(0).subscribe((res) => {
+				expect(res).toBeNull();
+				done();
+			});
+
+			const req = httpTesting.expectOne('https://picsum.photos/id/0/info');
+			req.flush('Not Found', {status: 404, statusText: 'Not Found'});
+		});
 	});
 });

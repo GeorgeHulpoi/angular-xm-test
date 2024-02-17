@@ -1,6 +1,6 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable, inject} from '@angular/core';
-import {Observable, delay, map} from 'rxjs';
+import {Observable, catchError, delay, map, of, throwError} from 'rxjs';
 
 import type {PicsumList, PicsumResource, PicsumResourceIdType} from '../../types';
 
@@ -75,12 +75,21 @@ export class PicsumService {
 	 *
 	 * @param id
 	 */
-	getInfo(id: PicsumResourceIdType): Observable<PicsumResource> {
+	getInfo(id: PicsumResourceIdType): Observable<PicsumResource | null> {
 		return this.httpClient.get<PicsumResourceResponse>(`https://picsum.photos/id/${id.toString()}/info`).pipe(
 			map((item) => ({
 				...item,
 				id: parseInt(item.id),
 			})),
+			catchError((err) => {
+				if (err instanceof HttpErrorResponse) {
+					if (err.status === 404) {
+						return of(null);
+					}
+				}
+
+				return throwError(() => err);
+			}),
 		);
 	}
 }
