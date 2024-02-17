@@ -42,10 +42,15 @@ export class FavoritesService {
 			 * Read more: https://developer.mozilla.org/en-US/docs/Web/API/Window/storage_event
 			 */
 			fromEvent<StorageEvent>(window, 'storage')
-				.pipe(filter((e) => e.storageArea === localStorage && e.key === FavoritesService.STORAGE_KEY))
+				.pipe(filter((e) => e.key === FavoritesService.STORAGE_KEY))
 				.subscribe(() => {
 					this.syncWithLocalStorage();
-					this.changesSubject.next(this.toImmutableArray());
+					/**
+					 * Continue the flow in NgZone
+					 */
+					this.ngZone.run(() => {
+						this.changesSubject.next(this.toImmutableArray());
+					});
 				});
 		});
 	}
