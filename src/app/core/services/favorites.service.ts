@@ -45,12 +45,7 @@ export class FavoritesService {
 				.pipe(filter((e) => e.key === FavoritesService.STORAGE_KEY))
 				.subscribe(() => {
 					this.syncWithLocalStorage();
-					/**
-					 * Continue the flow in NgZone
-					 */
-					this.ngZone.run(() => {
-						this.changesSubject.next(this.toImmutableArray());
-					});
+					this.changesSubject.next(this.toImmutableArray());
 				});
 		});
 	}

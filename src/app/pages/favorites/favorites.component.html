@@ -1,1 +1,19 @@
-<h2>Favorites View</h2>
+<div class="container">
+	@if (initialized) {
+		@if (data.length > 0) {
+			<div class="cards">
+				@for (photo of data; track photo.id) {
+					<a [routerLink]="'/photos/' + photo.id">
+						<app-card [id]="photo.id"></app-card>
+					</a>
+				}
+			</div>
+		} @else {
+			<p class="empty">Nothing to show here.</p>
+		}
+	} @else {
+		<div class="loader">
+			<mat-spinner diameter="48" strokeWidth="8"></mat-spinner>
+		</div>
+	}
+</div>

@@ -1,7 +1,7 @@
+import {NgOptimizedImage} from '@angular/common';
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 import type {PicsumResourceIdType} from '../../../types';
-import {NgOptimizedImage} from '@angular/common';
 
 @Component({
 	selector: 'app-card',
