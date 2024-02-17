@@ -13,4 +13,9 @@ export const routes: Routes = [
 		loadComponent: () => import('./pages/favorites/favorites.component').then((m) => m.FavoritesComponent),
 		title: 'Favorites',
 	},
+	{
+		path: 'photos/:id',
+		pathMatch: 'full',
+		loadComponent: () => import('./pages/single-photo/single-photo.component').then((m) => m.SinglePhotoComponent),
+	},
 ];
