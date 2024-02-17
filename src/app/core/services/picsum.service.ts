@@ -15,7 +15,14 @@ interface PicsumResourceResponse {
 
 type PicsumListResponse = PicsumResourceResponse[];
 
-@Injectable()
+/**
+ * For now I will let this service to be singletone.
+ * But honestly, getList will be used only in Photos View
+ * and getInfo in Favorites/Single Photo. Maybe I will
+ * break this service in two, bounded to the components
+ * they belong.
+ */
+@Injectable({providedIn: 'root'})
 export class PicsumService {
 	private readonly httpClient = inject(HttpClient);
 
