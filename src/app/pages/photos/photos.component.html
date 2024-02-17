@@ -1,1 +1,13 @@
-<h2>Photos</h2>
+<div class="container">
+	@if (data$ | async; as data) {
+		<app-virtual-list [items]="data.items">
+			<ng-template let-item>
+				<app-card (clickZoneless)="favoritesService.add(item.id)" [id]="item.id"></app-card>
+			</ng-template>
+		</app-virtual-list>
+
+		@if (data.hasNext) {
+			<app-loader (reached)="appendNextPage()"></app-loader>
+		}
+	}
+</div>
