@@ -1,5 +1,7 @@
 import {Routes} from '@angular/router';
 
+import {singlePhotoResolver} from './core/resolvers/single-photo.resolver';
+
 export const routes: Routes = [
 	{
 		path: '',
@@ -17,5 +19,8 @@ export const routes: Routes = [
 		path: 'photos/:id',
 		pathMatch: 'full',
 		loadComponent: () => import('./pages/single-photo/single-photo.component').then((m) => m.SinglePhotoComponent),
+		resolve: {
+			data: singlePhotoResolver,
+		},
 	},
 ];

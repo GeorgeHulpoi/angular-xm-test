@@ -8,3 +8,55 @@ body {
 	margin: 0;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+*,
+:before,
+:after {
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+	vertical-align: middle;
+}
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+.container {
+	width: 100%;
+	padding: 0 0.75rem;
+	margin: 0 auto;
+
+	@media screen and (min-width: 640px) {
+		max-width: calc(640px - #{1.5rem * 2});
+	}
+
+	@media screen and (min-width: 768px) {
+		max-width: calc(768px - #{1.5rem * 2});
+	}
+
+	@media screen and (min-width: 1024px) {
+		max-width: calc(1024px - #{4rem * 2});
+	}
+
+	@media screen and (min-width: 1280px) {
+		max-width: calc(1280px - #{4rem * 2});
+	}
+
+	@media screen and (min-width: 1536px) {
+		max-width: calc(1536px - #{4rem * 2});
+	}
+}
