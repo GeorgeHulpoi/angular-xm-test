@@ -1,3 +1,5 @@
+/// <reference types="jasmine" />
+
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 

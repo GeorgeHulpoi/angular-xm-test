@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 
 @import 'variables';
 
@@ -24,7 +24,7 @@ $border-color: map.get(map.get($theme, 'foreground'), 'dividers');
 	border-radius: 32px;
 	background: $background;
 	border: 1px solid $border-color;
-	
+
 	@supports (backdrop-filter: blur(8px)) {
 		background-color: rgba($background, 0.7);
 		backdrop-filter: blur(8px);

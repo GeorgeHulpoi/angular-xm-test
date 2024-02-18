@@ -1,3 +1,5 @@
+/// <reference types="jasmine" />
+
 import {Injectable} from '@angular/core';
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {Observable, of, skip, take} from 'rxjs';

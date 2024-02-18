@@ -1,3 +1,5 @@
+/// <reference types="jasmine" />
+
 import {provideLocationMocks} from '@angular/common/testing';
 import {Component} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';

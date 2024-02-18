@@ -1,3 +1,5 @@
+/// <reference types="jasmine" />
+
 import {ComponentFixture, TestBed, fakeAsync, flush, waitForAsync} from '@angular/core/testing';
 
 import {FavoritesService} from '../../core/services/favorites.service';

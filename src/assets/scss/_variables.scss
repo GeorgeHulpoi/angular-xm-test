@@ -9,10 +9,12 @@ $card-width: 318px;
 $primary: mat.define-palette(mat.$indigo-palette, 500);
 $accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
-$theme: mat.define-light-theme((
-    color: (
-        primary: $primary,
-        accent: $accent,
-    ),
-    density: 0,
-));
+$theme: mat.define-light-theme(
+	(
+		color: (
+			primary: $primary,
+			accent: $accent,
+		),
+		density: 0,
+	)
+);
