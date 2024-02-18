@@ -7,10 +7,10 @@ import {FavoritesService} from '../../core/services/favorites.service';
 import {PicsumService} from '../../core/services/picsum.service';
 import {CardComponent} from '../../shared/components/card/card.component';
 import {LoadingScreenComponent} from '../../shared/components/loading-screen/loading-screen.component';
+import {VirtualListComponent} from '../../shared/components/virtual-list/virtual-list.component';
 import {ClickZonelessDirective} from '../../shared/directives/click-zoneless.directive';
 import type {PicsumList} from '../../types';
 import {LoaderComponent} from './loader/loader.component';
-import {VirtualListComponent} from './virtual-list/virtual-list.component';
 
 @Component({
 	selector: 'app-photos',

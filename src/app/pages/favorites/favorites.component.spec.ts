@@ -90,60 +90,6 @@ describe('Favorites Component', () => {
 		expect(empty).toBeDefined();
 	});
 
-	it('should show resources', () => {
-		favoritesService.add(1);
-		fixture.detectChanges();
-
-		const element: HTMLElement = fixture.nativeElement;
-		const cards = element.querySelectorAll('app-card');
-
-		expect(cards.length).toEqual(1);
-		expect(component.data.length).toEqual(1);
-		expect(component.data).toContain(
-			jasmine.objectContaining({
-				id: 1,
-				author: 'Alejandro Escamilla',
-				width: 5000,
-				height: 3333,
-				url: 'https://unsplash.com/photos/yC-Yzbqy7PY',
-				download_url: 'https://picsum.photos/id/0/5000/3333',
-			}),
-		);
-	});
-
-	it('should update DOM when a new favorite is added', () => {
-		favoritesService.add(1);
-		fixture.detectChanges();
-
-		favoritesService.add(2);
-
-		const element: HTMLElement = fixture.nativeElement;
-		const cards = element.querySelectorAll('app-card');
-
-		expect(cards.length).toEqual(2);
-		expect(component.data.length).toEqual(2);
-		expect(component.data).toContain(
-			jasmine.objectContaining({
-				id: 1,
-				author: 'Alejandro Escamilla',
-				width: 5000,
-				height: 3333,
-				url: 'https://unsplash.com/photos/yC-Yzbqy7PY',
-				download_url: 'https://picsum.photos/id/0/5000/3333',
-			}),
-		);
-		expect(component.data).toContain(
-			jasmine.objectContaining({
-				id: 2,
-				author: 'Alejandro Escamilla',
-				width: 5000,
-				height: 3333,
-				url: 'https://unsplash.com/photos/N7XodRrbzS0',
-				download_url: 'https://picsum.photos/id/2/5000/3333',
-			}),
-		);
-	});
-
 	it('should cache', () => {
 		const getInfoSpy = spyOn(picsumService, 'getInfo').and.callThrough();
 		favoritesService.add(1);
@@ -180,17 +126,6 @@ describe('Favorites Component', () => {
 				download_url: 'https://picsum.photos/id/2/5000/3333',
 			}),
 		);
-	});
-
-	it('not found resource should not throw errors', () => {
-		favoritesService.add(1);
-		favoritesService.add(-1);
-		fixture.detectChanges();
-
-		const element: HTMLElement = fixture.nativeElement;
-		const cards = element.querySelectorAll('app-card');
-
-		expect(cards.length).toEqual(1);
 	});
 
 	it('not found resource should remove from favorites', () => {

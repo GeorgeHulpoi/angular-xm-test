@@ -14,7 +14,7 @@ import {
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {animationFrameScheduler, fromEvent, throttleTime} from 'rxjs';
 
-import {CollectionComponent} from '../../../shared/components/collection/collection.component';
+import {CollectionComponent} from '../collection/collection.component';
 import type {PicsumResource} from '../../../types';
 
 interface TemplateContext {

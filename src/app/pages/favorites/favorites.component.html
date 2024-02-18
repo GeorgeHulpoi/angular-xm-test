@@ -1,13 +1,13 @@
 @if (initialized) {
 	<div class="container">
 		@if (data.length > 0) {
-			<app-collection>
-				@for (photo of data; track photo.id) {
-					<a [routerLink]="'/photos/' + photo.id">
-						<app-card [id]="photo.id"></app-card>
+			<app-virtual-list [items]="data">
+				<ng-template let-item>
+					<a [routerLink]="'/photos/' + item.id">
+						<app-card [id]="item.id"></app-card>
 					</a>
-				}
-			</app-collection>
+				</ng-template>
+			</app-virtual-list>
 		} @else {
 			<p class="empty">Nothing to show here.</p>
 		}
