@@ -8,4 +8,11 @@ export default defineConfig({
 		},
 		specPattern: '**/*.cy.ts',
 	},
+
+	e2e: {
+		baseUrl: 'http://localhost:4200',
+		setupNodeEvents(on, config) {
+			// implement node event listeners here
+		},
+	},
 });
