@@ -1,17 +1,21 @@
+@import 'variables';
+
+$gap: 32px;
+
 .row {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	gap: 32px;
-	padding-bottom: 32px;
+	gap: $gap;
+	padding-bottom: $gap;
 
 	@media screen and (min-width: 768px) {
 		display: grid;
-		grid-template-columns: repeat(2, 318px);
+		grid-template-columns: repeat(2, $card-width);
 	}
 
 	@media screen and (min-width: 1280px) {
-		grid-template-columns: repeat(3, 318px);
+		grid-template-columns: repeat(3, $card-width);
 	}
 }

@@ -32,6 +32,18 @@ export class VirtualListComponent implements OnChanges {
 	@Input({required: true}) items!: PicsumResource[];
 	@ContentChild(TemplateRef, {static: true}) template!: TemplateRef<TemplateContext>;
 
+	/**
+	 * The current Angular CDK Virtual Scroll strategy uses fixed size.
+	 * I had to choose between implementing my strategy and using a fixed size.
+	 * The fastest was to use a fixed height. Therefore this value should
+	 * change if you change the gap or the card size.
+	 */
+	readonly itemSize = 350;
+	/**
+	 * READ: https://material.angular.io/cdk/scrolling/overview#scrolling-over-fixed-size-items
+	 * TLTR: Always render 4 rows in both directions.
+	 */
+	readonly bufferPx = this.itemSize * 4;
 	collections!: PicsumResource[][];
 	private readonly ngZone = inject(NgZone);
 	private readonly cd = inject(ChangeDetectorRef);
