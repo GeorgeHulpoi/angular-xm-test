@@ -1,7 +1,9 @@
+@import 'variables';
+
 :host {
 	display: block;
 }
 
 .view {
-	padding: 4rem 0;
+	padding: calc(4rem + #{$navbar-height}) 0 4rem 0;
 }

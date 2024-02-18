@@ -6,7 +6,8 @@ $background: map.get(map.get($theme, 'background'), 'card');
 $border-color: map.get(map.get($theme, 'foreground'), 'dividers');
 
 :host {
-	position: sticky;
+	position: fixed;
+	width: 100%;
 	z-index: 999;
 	top: $navbar-top;
 	left: 0;
