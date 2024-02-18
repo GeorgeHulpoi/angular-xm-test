@@ -4,7 +4,7 @@
 
 $padding: 8px;
 $background: map.get(map.get($theme, 'background'), 'card');
-$border: map.get(map.get($theme, 'foreground'), 'dividers');
+$border-color: map.get(map.get($theme, 'foreground'), 'dividers');
 
 :host {
 	position: relative;
@@ -18,7 +18,7 @@ $border: map.get(map.get($theme, 'foreground'), 'dividers');
 	display: inline-block;
 	padding: $padding;
 	background: $background;
-	border: 1px solid $border;
+	border: 1px solid $border-color;
 	filter: grayscale(50%);
 	will-change: filter;
 	transform: translateZ(0);
