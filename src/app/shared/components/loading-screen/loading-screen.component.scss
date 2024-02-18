@@ -3,8 +3,8 @@
 :host {
 	position: fixed;
 	width: 100%;
-	height: calc(100vh - #{$navbar-height - $navbar-top});
-	height: calc(100dvh - #{$navbar-height - $navbar-top});
+	height: calc(100vh - #{$navbar-height + $navbar-top});
+	height: calc(100dvh - #{$navbar-height + $navbar-top});
 	top: $navbar-height + $navbar-top;
 	left: 0;
 	display: flex;
