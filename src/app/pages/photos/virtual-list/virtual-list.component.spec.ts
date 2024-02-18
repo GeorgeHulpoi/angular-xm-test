@@ -110,7 +110,7 @@ describe('Virtual List Component', () => {
 	});
 
 	/**
-	 * Normally I should check if there is rendered the given template, 
+	 * Normally I should check if there is rendered the given template,
 	 * but cdk-virtual-scroll-viewport doesn't render in this testing environment.
 	 * This test should be done as a E2E in Cypress.
 	 */
