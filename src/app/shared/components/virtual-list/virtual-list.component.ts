@@ -14,7 +14,6 @@ import {
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {animationFrameScheduler, fromEvent, throttleTime} from 'rxjs';
 
-import {CollectionComponent} from '../collection/collection.component';
 import type {PicsumResource} from '../../../types';
 
 interface TemplateContext {
@@ -27,7 +26,7 @@ interface TemplateContext {
 	styleUrl: 'virtual-list.component.scss',
 	standalone: true,
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	imports: [ScrollingModule, CollectionComponent, NgTemplateOutlet],
+	imports: [ScrollingModule, NgTemplateOutlet],
 })
 export class VirtualListComponent implements OnChanges {
 	@Input({required: true}) items!: PicsumResource[];
