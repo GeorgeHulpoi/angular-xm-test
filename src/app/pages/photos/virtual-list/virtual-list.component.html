@@ -1,5 +1,5 @@
 <cdk-virtual-scroll-viewport scrollWindow itemSize="350" minBufferPx="1400" maxBufferPx="1400">
-	<app-collection *cdkVirtualFor="let collection of chunks(items, columns)">
+	<app-collection *cdkVirtualFor="let collection of collections">
 		@for (item of collection; track item.id) {
 			<ng-container *ngTemplateOutlet="template; context: {$implicit: item}"></ng-container>
 		}

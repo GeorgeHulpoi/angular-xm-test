@@ -7,6 +7,7 @@ import {
 	ContentChild,
 	Input,
 	NgZone,
+	OnChanges,
 	TemplateRef,
 	inject,
 } from '@angular/core';
@@ -28,10 +29,11 @@ interface TemplateContext {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [ScrollingModule, CollectionComponent, NgTemplateOutlet],
 })
-export class VirtualListComponent {
+export class VirtualListComponent implements OnChanges {
 	@Input({required: true}) items!: PicsumResource[];
 	@ContentChild(TemplateRef, {static: true}) template!: TemplateRef<TemplateContext>;
 
+	collections!: PicsumResource[][];
 	private readonly ngZone = inject(NgZone);
 	private readonly cd = inject(ChangeDetectorRef);
 
@@ -58,10 +60,19 @@ export class VirtualListComponent {
 
 					if (this.columns !== newColumns) {
 						this._columns = newColumns;
+						this.collections = this.generateCollections();
 						this.cd.detectChanges();
 					}
 				});
 		});
+	}
+
+	ngOnChanges(): void {
+		this.collections = this.generateCollections();
+	}
+
+	generateCollections(): PicsumResource[][] {
+		return [...this.chunks(this.items, this.columns)];
 	}
 
 	chunks = function* <T>(arr: T[], n: number): Generator<T[], void> {

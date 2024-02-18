@@ -63,6 +63,41 @@ describe('Virtual List Component', () => {
 		});
 	});
 
+	describe('generateCollections', () => {
+		it('should return correct array', () => {
+			spyOnProperty(window, 'innerWidth').and.returnValue(320);
+			fixture.componentRef.setInput('items', [
+				{
+					id: 0,
+					author: 'Alejandro Escamilla',
+					width: 5000,
+					height: 3333,
+					url: 'https://unsplash.com/photos/yC-Yzbqy7PY',
+					download_url: 'https://picsum.photos/id/0/5000/3333',
+				},
+				{
+					id: 1,
+					author: 'Alejandro Escamilla',
+					width: 5000,
+					height: 3333,
+					url: 'https://unsplash.com/photos/LNRyGwIJr5c',
+					download_url: 'https://picsum.photos/id/1/5000/3333',
+				},
+			]);
+			// Seems like it has been already constructed, so
+			// I will dispatch a resize event to update based on the new innerWidth
+			window.dispatchEvent(new Event('resize'));
+			fixture.detectChanges();
+
+			const collections = component.generateCollections();
+
+			expect(Array.isArray(collections)).toBeTrue();
+			expect(collections.length).toEqual(2);
+			expect(collections[0].length).toEqual(1);
+			expect(collections[1].length).toEqual(1);
+		});
+	});
+
 	it('should update columns on resize', () => {
 		fixture.componentRef.setInput('items', []);
 		const spy = spyOnProperty(window, 'innerWidth').and.returnValue(340);
