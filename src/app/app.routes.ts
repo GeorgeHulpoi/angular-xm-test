@@ -23,4 +23,8 @@ export const routes: Routes = [
 			data: singlePhotoResolver,
 		},
 	},
+	{
+		path: '**',
+		loadComponent: () => import('./pages/not-found/not-found.component').then((m) => m.NotFoundComponent),
+	},
 ];

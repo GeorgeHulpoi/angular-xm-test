@@ -1,0 +1,14 @@
+@import 'variables';
+
+.container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 8rem - #{$navbar-height + $navbar-top});
+	height: calc(100dvh - 8rem - #{$navbar-height + $navbar-top});
+}
+
+h1 {
+    font-size: 3rem;
+}
