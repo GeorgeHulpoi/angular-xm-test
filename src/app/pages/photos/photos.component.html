@@ -1,5 +1,5 @@
-<div class="container">
-	@if (data$ | async; as data) {
+@if (data$ | async; as data) {
+	<div class="container">
 		<app-virtual-list [items]="data.items">
 			<ng-template let-item>
 				<app-card (clickZoneless)="favoritesService.add(item.id)" [id]="item.id"></app-card>
@@ -7,11 +7,9 @@
 		</app-virtual-list>
 
 		@if (data.hasNext) {
-			<app-loader (reached)="appendNextPage()"></app-loader>
+			<app-loader (reached)="appendNextPage()" />
 		}
-	} @else {
-		<div class="loading">
-			<mat-spinner diameter="48" strokeWidth="8"></mat-spinner>
-		</div>
-	}
-</div>
+	</div>
+} @else {
+	<app-loading-screen />
+}

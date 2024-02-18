@@ -4,11 +4,3 @@
 	font-size: 1.25rem;
 	text-align: center;
 }
-
-.loader {
-	width: 100%;
-	height: calc(100vh - 8rem - #{$navbar-height}); 
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}

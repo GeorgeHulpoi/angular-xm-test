@@ -1,7 +1,6 @@
 import {AsyncPipe} from '@angular/common';
 import {ChangeDetectorRef, Component, DestroyRef, OnInit, inject} from '@angular/core';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {RouterLink} from '@angular/router';
 import {Observable, forkJoin, of, switchMap, tap} from 'rxjs';
 
@@ -9,6 +8,7 @@ import {FavoritesService} from '../../core/services/favorites.service';
 import {PicsumService} from '../../core/services/picsum.service';
 import {CardComponent} from '../../shared/components/card/card.component';
 import {CollectionComponent} from '../../shared/components/collection/collection.component';
+import {LoadingScreenComponent} from '../../shared/components/loading-screen/loading-screen.component';
 import type {PicsumResource, PicsumResourceIdType} from '../../types';
 
 @Component({
@@ -16,7 +16,7 @@ import type {PicsumResource, PicsumResourceIdType} from '../../types';
 	templateUrl: 'favorites.component.html',
 	styleUrl: 'favorites.component.scss',
 	standalone: true,
-	imports: [AsyncPipe, RouterLink, CardComponent, MatProgressSpinnerModule, CollectionComponent],
+	imports: [AsyncPipe, RouterLink, CardComponent, CollectionComponent, LoadingScreenComponent],
 })
 export class FavoritesComponent implements OnInit {
 	data: PicsumResource[] = [];
