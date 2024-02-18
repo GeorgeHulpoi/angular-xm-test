@@ -1,6 +1,7 @@
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {AsyncPipe} from '@angular/common';
 import {Component, NgZone, inject} from '@angular/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BehaviorSubject, Observable, concatMap, scan, tap} from 'rxjs';
 
 import {FavoritesService} from '../../core/services/favorites.service';
@@ -16,7 +17,15 @@ import {VirtualListComponent} from './virtual-list/virtual-list.component';
 	templateUrl: './photos.component.html',
 	styleUrl: './photos.component.scss',
 	standalone: true,
-	imports: [AsyncPipe, LoaderComponent, ScrollingModule, VirtualListComponent, CardComponent, ClickZonelessDirective],
+	imports: [
+		AsyncPipe,
+		LoaderComponent,
+		ScrollingModule,
+		VirtualListComponent,
+		CardComponent,
+		ClickZonelessDirective,
+		MatProgressSpinnerModule,
+	],
 })
 export class PhotosComponent {
 	data$: Observable<PicsumList>;

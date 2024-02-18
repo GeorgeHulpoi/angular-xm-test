@@ -9,5 +9,9 @@
 		@if (data.hasNext) {
 			<app-loader (reached)="appendNextPage()"></app-loader>
 		}
+	} @else {
+		<div class="loading">
+			<mat-spinner diameter="48" strokeWidth="8"></mat-spinner>
+		</div>
 	}
 </div>
