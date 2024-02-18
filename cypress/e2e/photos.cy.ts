@@ -4,7 +4,7 @@ describe('Photos View', () => {
 			fixture: 'photos/page1.json',
 		});
 
-		cy.visit('http://localhost:4200');
+		cy.visit(Cypress.config().baseUrl + '/');
 		cy.get('app-card').should('have.length', 6);
 	});
 
@@ -23,7 +23,7 @@ describe('Photos View', () => {
 			fixture: 'photos/page2.json',
 		});
 
-		cy.visit('http://localhost:4200');
+		cy.visit(Cypress.config().baseUrl + '/');
 		cy.scrollTo('bottom');
 		cy.get('app-card').should('have.length', 12);
 		cy.get('app-loader').should('not.exist');
@@ -34,7 +34,7 @@ describe('Photos View', () => {
 			fixture: 'photos/page1.json',
 		});
 
-		cy.visit('http://localhost:4200');
+		cy.visit(Cypress.config().baseUrl + '/');
 
 		const card = cy.get('app-card').first();
 		card.click();
@@ -42,7 +42,7 @@ describe('Photos View', () => {
 			.first()
 			.invoke('attr', 'src')
 			.then((src) => {
-				cy.visit('http://localhost:4200/favorites');
+				cy.visit(Cypress.config().baseUrl + '/favorites');
 
 				cy.get('app-card').first().children('img').first().invoke('attr', 'src').should('eq', src);
 			});
