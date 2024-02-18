@@ -1,4 +1,9 @@
+@use "sass:map";
+
 @import 'variables';
+
+$background: map.get(map.get($theme, 'background'), 'card');
+$border-color: map.get(map.get($theme, 'foreground'), 'dividers');
 
 :host {
 	position: sticky;
@@ -16,15 +21,15 @@
 	height: $navbar-height;
 	gap: 1rem;
 	border-radius: 32px;
-	background: #fff;
-	border: 1px solid var(--mat-divider-color);
+	background: $background;
+	border: 1px solid $border-color;
 	
 	@supports (backdrop-filter: blur(8px)) {
-		background-color: rgba(255, 255, 255, 0.7);
+		background-color: rgba($background, 0.7);
 		backdrop-filter: blur(8px);
 	}
 }
 
 button:not(.mat-primary) {
-	background: #fff;
+	background: $background;
 }
