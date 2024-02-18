@@ -1,22 +1,24 @@
+@import 'variables';
+
 :host {
 	position: sticky;
 	z-index: 999;
 	top: 8px;
 	left: 0;
-	width: 100%;
-	padding: 0.5rem 0;
 }
 
 .content {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
+	width: 100%;
+	height: $navbar-height;
 	gap: 1rem;
-	padding: 0.5rem 0;
 	border-radius: 32px;
 	background: #fff;
 	border: 1px solid var(--mat-divider-color);
-
+	
 	@supports (backdrop-filter: blur(8px)) {
 		background-color: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(8px);

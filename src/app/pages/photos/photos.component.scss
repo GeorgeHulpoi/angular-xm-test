@@ -1,6 +1,8 @@
+@import 'variables';
+
 .loading {
-    height: calc(100vh - 8rem - 54px);
-    height: calc(100dvh - 8rem - 54px);
+    height: calc(100vh - 8rem - #{$navbar-height});
+    height: calc(100dvh - 8rem - #{$navbar-height});
     display: flex;
     align-items: center;
     justify-content: center;
